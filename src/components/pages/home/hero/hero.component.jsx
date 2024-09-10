@@ -91,7 +91,7 @@ export const Hero = () => {
       <div className="relative overflow-hidden hero-container">
         <Particles
           id="tsparticles"
-          className="h-[800px]"
+          className="h-[680px]"
           options={particleOpts}
         />
         <div className="absolute top-[40%] -translate-x-1/2 -translate-y-1/2 left-1/2 z-30 flex-col flex items-center justify-top text-center gap-12 max-w-[610px]">
