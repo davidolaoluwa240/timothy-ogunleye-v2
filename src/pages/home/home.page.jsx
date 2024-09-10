@@ -1,3 +1,11 @@
+// Components
+import { Fragment } from "react";
+import { Hero } from "../../components";
+
 export const Home = () => {
-  return <h1>Hello WOrld</h1>;
+  return (
+    <Fragment>
+      <Hero />
+    </Fragment>
+  );
 };

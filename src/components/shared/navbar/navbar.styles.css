@@ -1,0 +1,8 @@
+.navbar-item .navbar-link:hover,
+.navbar-item[data-active="true"] .navbar-link {
+  @apply text-blue border-blue;
+}
+
+.navbar-menu-item[data-active="true"] .navbar-link {
+  @apply text-blue;
+}
