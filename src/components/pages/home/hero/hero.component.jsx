@@ -24,7 +24,7 @@ import "./hero.styles.css";
 
 export const Hero = () => {
   const [init, setInit] = useState(false);
-  const [x, github, linkedin] = socialLinks;
+  const [x, github, linkedin, , , , youtube] = socialLinks;
 
   // Scroll To Section
   const handleScroll = (sectionId) => {
@@ -91,7 +91,7 @@ export const Hero = () => {
           density: {
             enable: true,
           },
-          value: 160,
+          value: 140,
         },
         opacity: {
           value: 0.4,
@@ -118,7 +118,7 @@ export const Hero = () => {
         <div className="absolute top-[40%] -translate-x-1/2 -translate-y-1/2 left-1/2 z-30 flex-col flex items-center justify-top text-center gap-12 max-w-[610px]">
           <div className="flex flex-col items-center gap-8">
             <h1 className="text-3xl font-normal flex items-center gap-2">
-              TIMOTHY <IoIosAnalytics className="text-7xl" />
+              Dr. TIMOTHY <IoIosAnalytics className="text-7xl" />
               OGUNLEYE
             </h1>
 
@@ -172,7 +172,7 @@ export const Hero = () => {
 
           <div className="flex flex-col items-center gap-5">
             <p className="leading-7">
-              👋 Hi! I'm Timothy, a <strong>statistician</strong> and{" "}
+              👋 Hi! I'm Dr. Timothy, a <strong>statistician</strong> and{" "}
               <strong>data scientist </strong>
               focused on advancing statistical computing in Africa. I'm a
               lecturer at Osun State University and Secretary-General of the
@@ -188,6 +188,9 @@ export const Hero = () => {
                 size="lg"
                 color="primary"
                 radius="sm"
+                href={youtube.to}
+                target="_blank"
+                rel="noreferrer noopener"
               >
                 SUBSCRIBE
               </Button>

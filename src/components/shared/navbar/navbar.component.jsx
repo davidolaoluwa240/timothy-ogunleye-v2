@@ -36,9 +36,9 @@ export const Navbar = () => {
   };
 
   // Rendered Navbar Items
-  const renderedNavbarItems = navbarItems.map(({ label, to }, i) => (
+  const renderedNavbarItems = navbarItems.map(({ label, to, id }) => (
     <NavbarItem
-      key={i}
+      key={id}
       className="navbar-item data-[active=true]:font-normal"
       data-active={activeLink === to}
     >
@@ -53,14 +53,13 @@ export const Navbar = () => {
   ));
 
   // Rendered Navbar Menu Items
-  const renderedNavbarMenuItems = navbarItems.map(({ label, to }, i) => (
+  const renderedNavbarMenuItems = navbarItems.map(({ label, to, id }) => (
     <NavbarMenuItem
-      key={i}
+      key={id}
       className="navbar-menu-item data-[active=true]:font-normal"
       data-active={activeLink === to}
     >
       <Link
-        key={i}
         className="text-white border-transparent text-sm uppercase transition-colors font-inter font-medium navbar-link"
         to={to}
         onClick={handleNavigate.bind(null, to)}
@@ -73,7 +72,7 @@ export const Navbar = () => {
   return (
     <NextNavbar
       className="bg-primary/70"
-      classNames={{ wrapper: "lg:p-6 max-w-[1308px]" }}
+      classNames={{ wrapper: "max-w-[1308px]" }}
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarBrand>
