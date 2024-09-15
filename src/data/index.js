@@ -1,24 +1,150 @@
 // Components
 import { FaUsers, FaChartBar, FaUniversity } from "react-icons/fa";
 
+// Images
+import gallery1 from "../assets/images/gallery-1.jpeg";
+import gallery2 from "../assets/images/gallery-2.jpeg";
+import gallery3 from "../assets/images/gallery-3.jpeg";
+import gallery4 from "../assets/images/gallery-4.jpeg";
+import gallery5 from "../assets/images/gallery-5.jpeg";
+import gallery6 from "../assets/images/gallery-6.jpeg";
+import gallery7 from "../assets/images/gallery-7.jpeg";
+import gallery8 from "../assets/images/gallery-8.jpeg";
+import gallery9 from "../assets/images/gallery-9.jpeg";
+import gallery10 from "../assets/images/gallery-10.jpeg";
+import gallery11 from "../assets/images/gallery-11.jpeg";
+import gallery12 from "../assets/images/gallery-12.jpeg";
+import gallery13 from "../assets/images/gallery-13.jpeg";
+import gallery14 from "../assets/images/gallery-14.jpeg";
+import gallery15 from "../assets/images/gallery-15.jpeg";
+import gallery16 from "../assets/images/gallery-16.jpeg";
+import gallery17 from "../assets/images/gallery-17.jpeg";
+import gallery18 from "../assets/images/gallery-18.jpeg";
+import gallery19 from "../assets/images/gallery-19.jpeg";
+import gallery20 from "../assets/images/gallery-20.jpeg";
+import gallery21 from "../assets/images/gallery-21.jpeg";
+import gallery22 from "../assets/images/gallery-22.jpeg";
+import gallery23 from "../assets/images/gallery-23.jpeg";
+import gallery24 from "../assets/images/gallery-24.jpeg";
+import gallery25 from "../assets/images/gallery-25.jpeg";
+import gallery26 from "../assets/images/gallery-26.jpeg";
+import gallery27 from "../assets/images/gallery-27.jpeg";
+import gallery28 from "../assets/images/gallery-28.jpeg";
+import gallery29 from "../assets/images/gallery-29.jpeg";
+import gallery30 from "../assets/images/gallery-30.jpeg";
+import gallery31 from "../assets/images/gallery-31.jpeg";
+import gallery32 from "../assets/images/gallery-32.jpeg";
+import gallery33 from "../assets/images/gallery-33.jpeg";
+import gallery34 from "../assets/images/gallery-34.jpeg";
+import gallery35 from "../assets/images/gallery-35.jpeg";
+import gallery36 from "../assets/images/gallery-36.jpeg";
+import gallery37 from "../assets/images/gallery-37.jpeg";
+import gallery38 from "../assets/images/gallery-38.jpeg";
+import gallery39 from "../assets/images/gallery-39.jpeg";
+import gallery40 from "../assets/images/gallery-40.jpeg";
+import gallery41 from "../assets/images/gallery-41.jpeg";
+import gallery42 from "../assets/images/gallery-42.jpeg";
+import gallery43 from "../assets/images/gallery-43.jpeg";
+import gallery44 from "../assets/images/gallery-44.jpeg";
+import gallery45 from "../assets/images/gallery-45.jpeg";
+import gallery46 from "../assets/images/gallery-46.jpeg";
+import gallery47 from "../assets/images/gallery-47.jpeg";
+import gallery48 from "../assets/images/gallery-48.jpeg";
+import gallery49 from "../assets/images/gallery-49.jpeg";
+import gallery50 from "../assets/images/gallery-50.jpeg";
+
 // Navbar Items
 export const NAVBAR_ITEMS = [
   { id: 1, label: "Intro", to: "/#intro" },
   { id: 2, label: "Services", to: "/#services" },
   { id: 3, label: "Portfolio", to: "/#portfolio" },
   { id: 4, label: "Testimonials", to: "/#testimonials" },
-  { id: 5, label: "contact", to: "/#contact" },
+  { id: 5, label: "Gallery", to: "/#gallery" },
+  { id: 6, label: "contact", to: "/#contact" },
 ];
+
+// GALLERY ITEMS
+export const GALLERY_ITEMS = [
+  gallery1,
+  gallery2,
+  gallery3,
+  gallery4,
+  gallery5,
+  gallery6,
+  gallery7,
+  gallery8,
+  gallery9,
+  gallery10,
+  gallery11,
+  gallery12,
+  gallery13,
+  gallery14,
+  gallery15,
+  gallery16,
+  gallery17,
+  gallery18,
+  gallery19,
+  gallery20,
+  gallery21,
+  gallery22,
+  gallery23,
+  gallery24,
+  gallery25,
+  gallery26,
+  gallery27,
+  gallery28,
+  gallery29,
+  gallery30,
+  gallery31,
+  gallery32,
+  gallery33,
+  gallery34,
+  gallery35,
+  gallery36,
+  gallery37,
+  gallery38,
+  gallery39,
+  gallery40,
+  gallery41,
+  gallery42,
+  gallery43,
+  gallery44,
+  gallery45,
+  gallery46,
+  gallery47,
+  gallery48,
+  gallery49,
+  gallery50,
+].map((gallery) => ({ original: gallery, thumbnail: gallery }));
 
 // Social Links
 export const SOCIAL_LINKS = [
   { id: 1, label: "X", to: "www.x.com" },
   { id: 2, label: "Github", to: "www.github.com" },
-  { id: 3, label: "Linkedin", to: "www.linkedin.com" },
+  {
+    id: 3,
+    label: "Linkedin",
+    to: "https://www.linkedin.com/in/timothy-ogunleye/",
+  },
   { id: 4, label: "Resume", to: "www.resume.com" },
-  { id: 5, label: "Email", to: "test@email.com" },
+  { id: 5, label: "Email", to: "thompsondx@gmail.com" },
   { id: 6, label: "Publication", to: "www.publication.com" },
   { id: 7, label: "Youtube", to: "https://www.youtube.com/@timothy.ogunley" },
+  {
+    id: 8,
+    label: "Google Scholar",
+    to: "https://scholar.google.com/citations?user=j42dVZsAAAAJ",
+  },
+  {
+    id: 9,
+    label: "Research Gate",
+    to: "https://www.researchgate.net/profile/Timothy-Ogunleye",
+  },
+  {
+    id: 10,
+    label: "ORCID",
+    to: "https://orcid.org/0000-0002-2782-382X",
+  },
 ];
 
 // Work Experience Items
@@ -133,5 +259,49 @@ export const SERVICES_ITEMS = [
       ],
     },
     modalTitle: "training",
+  },
+];
+
+// Testimonials Items
+export const TESTIMONIALS_ITEMS = [
+  {
+    id: 1,
+    testimonial:
+      "Timothy’s attention to detail and commitment to delivering top-notch solutions has been a game-changer for us. His ability to simplify complex data into digestible visualizations is truly remarkable.",
+    author: "Jennifer Smith",
+    organization: "DataTech Innovations",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+  },
+  {
+    id: 2,
+    testimonial:
+      "Working with Timothy has been a fantastic experience. His technical expertise and problem-solving mindset helped us streamline our development processes and improve overall efficiency.",
+    author: "Michael Johnson",
+    organization: "BuildNow Solutions",
+    image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce",
+  },
+  {
+    id: 3,
+    testimonial:
+      "Timothy consistently delivers high-quality work on time, even under tight deadlines. His dedication to excellence is evident in every project he tackles.",
+    author: "Laura Thompson",
+    organization: "ClearView Analytics",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
+  },
+  {
+    id: 4,
+    testimonial:
+      "Timothy’s work in developing data visualization tools for our research team has significantly improved our ability to analyze and present complex data sets. He’s a true expert in his field.",
+    author: "Dr. Emily Carter",
+    organization: "Global Insights Center",
+    image: "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7",
+  },
+  {
+    id: 5,
+    testimonial:
+      "Timothy’s ability to adapt to new challenges and deliver innovative solutions has made a huge impact on our projects. His contributions have been invaluable.",
+    author: "Robert Wilson",
+    organization: "TechWorks Labs",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
   },
 ];

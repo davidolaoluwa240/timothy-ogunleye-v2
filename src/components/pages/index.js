@@ -9,3 +9,8 @@ export * from "./home/services/services-modal/services-modal.component";
 export * from "./home/services/services-modal/talking-modal/talking-modal.component";
 export * from "./home/services/services-modal/consulting-modal/consulting-modal.component";
 export * from "./home/services/services-modal/training-modal/training-modal.component";
+export * from "./home/portfolio/portfolio.component";
+export * from "./home/contact/contact.component";
+export * from "./home/testimonial/testimonial.component";
+export * from "./home/testimonial/testimonial-list/testimonial-list.component";
+export * from "./home/gallery/gallery.component";

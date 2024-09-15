@@ -1,6 +1,15 @@
 // Components
 import { Fragment } from "react";
-import { Hero, About, Services } from "../../components";
+import {
+  Hero,
+  About,
+  Services,
+  Portfolio,
+  Testimonial,
+  Gallery,
+  Contact,
+  Footer,
+} from "../../components";
 
 export const Home = () => {
   return (
@@ -8,6 +17,11 @@ export const Home = () => {
       <Hero />
       <About />
       <Services />
+      <Portfolio />
+      <Testimonial />
+      <Gallery />
+      <Contact />
+      <Footer />
     </Fragment>
   );
 };

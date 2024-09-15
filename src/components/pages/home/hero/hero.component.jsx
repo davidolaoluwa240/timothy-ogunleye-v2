@@ -4,6 +4,7 @@ import { loadSlim } from "@tsparticles/slim";
 
 // Hooks
 import { useMemo, useEffect, useState } from "react";
+import { useScrollIntoView } from "../../../../hooks";
 
 // Components
 import Particles from "@tsparticles/react";
@@ -25,11 +26,7 @@ import "./hero.styles.css";
 export const Hero = () => {
   const [init, setInit] = useState(false);
   const [x, github, linkedin, , , , youtube] = socialLinks;
-
-  // Scroll To Section
-  const handleScroll = (sectionId) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
-  };
+  const { handleScroll } = useScrollIntoView();
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -109,7 +106,7 @@ export const Hero = () => {
 
   return (
     init && (
-      <div className="relative overflow-hidden hero-container">
+      <div className="relative overflow-hidden hero-container" id="page-top">
         <Particles
           id="tsparticles"
           className="h-[680px]"
