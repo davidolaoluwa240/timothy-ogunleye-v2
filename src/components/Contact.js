@@ -1,105 +1,125 @@
 import { siteConfig } from '../data/siteConfig';
 
 export function createContact() {
+  const newsHtml = siteConfig.news.map(item => `
+    <div class="mb-6 pb-6 border-b border-gray-100 last:border-0 last:mb-0 last:pb-0">
+      <span class="text-sm font-bold text-academic-gold uppercase tracking-widest">${item.date}</span>
+      <h4 class="font-bold text-academic-navy text-lg mt-2 mb-2">${item.title}</h4>
+      <p class="text-gray-600 leading-relaxed">${item.summary}</p>
+    </div>
+  `).join('');
+
+  const eventsHtml = siteConfig.events.map(event => `
+    <div class="flex items-start mb-5">
+      <div class="bg-academic-navy text-white px-3 py-2 text-center rounded-none mr-4 min-w-[70px]">
+        <div class="text-xs uppercase font-bold text-academic-gold tracking-widest">${event.date.split(' ')[0]}</div>
+        <div class="text-xl font-black">${event.date.split(' ')[1].replace(',', '')}</div>
+      </div>
+      <div>
+        <h4 class="font-bold text-academic-navy text-lg leading-tight">${event.title}</h4>
+        <p class="text-sm text-gray-500 mt-1 flex items-center">
+          <i data-lucide="map-pin" class="w-3 h-3 mr-1"></i> ${event.location}
+        </p>
+      </div>
+    </div>
+  `).join('');
+
   return `
-    <section id="contact" class="py-24 bg-academic-ivory">
+    <section class="py-24 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-display font-bold text-academic-navy sm:text-4xl">Get in Touch</h2>
-          <div class="w-24 h-1 bg-academic-gold mx-auto mt-4 rounded-full"></div>
-          <p class="mt-6 text-gray-600 max-w-2xl mx-auto">Open to research collaborations, speaking engagements, and prospective PhD student inquiries.</p>
-        </div>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
           
-          <!-- Contact Info Box -->
-          <div class="bg-academic-navy p-10 text-white relative overflow-hidden">
-            <div class="absolute -bottom-16 -right-16 w-64 h-64 border-4 border-academic-gold/20 rounded-full"></div>
-            <div class="absolute top-8 right-8 w-16 h-16 bg-academic-gold/20 rounded-full blur-xl"></div>
-            
-            <h3 class="text-2xl font-bold mb-8 relative z-10">Contact Information</h3>
-            
-            <ul class="space-y-8 relative z-10">
-              <li class="flex items-start">
-                <i data-lucide="map-pin" class="w-6 h-6 mr-4 text-academic-gold shrink-0"></i>
-                <div>
-                  <p class="font-medium text-lg">Office Location</p>
-                  <p class="text-gray-400 mt-1">${siteConfig.author.office}</p>
+          <div class="lg:col-span-8">
+            <div id="news" class="mb-20 scroll-mt-32">
+              <h2 class="text-3xl font-display font-black text-academic-navy sm:text-4xl uppercase tracking-widest border-b-2 border-academic-gold pb-4 mb-8 flex items-center">
+                <i data-lucide="newspaper" class="w-8 h-8 mr-4 text-academic-gold"></i>
+                Latest News
+              </h2>
+              <div class="bg-academic-ivory p-8 border border-gray-200">
+                ${newsHtml}
+              </div>
+            </div>
+
+            <div id="consultancy" class="mb-20 scroll-mt-32">
+              <h2 class="text-3xl font-display font-black text-academic-navy sm:text-4xl uppercase tracking-widest border-b-2 border-academic-gold pb-4 mb-8 flex items-center">
+                <i data-lucide="briefcase" class="w-8 h-8 mr-4 text-academic-gold"></i>
+                Consultancy
+              </h2>
+              <div class="bg-academic-navy text-white p-8 border-l-8 border-academic-gold">
+                <p class="text-lg leading-relaxed text-gray-300 italic">
+                  ${siteConfig.consultancy.statement}
+                </p>
+              </div>
+            </div>
+
+            <div id="contact" class="mb-10 scroll-mt-32">
+              <h2 class="text-3xl font-display font-black text-academic-navy sm:text-4xl uppercase tracking-widest border-b-2 border-academic-gold pb-4 mb-8 flex items-center">
+                <i data-lucide="mail" class="w-8 h-8 mr-4 text-academic-gold"></i>
+                Direct Inquiries
+              </h2>
+              <form class="space-y-6 bg-academic-ivory p-8 border border-gray-200" onsubmit="event.preventDefault(); alert('Message sent successfully.');">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label class="block text-sm font-bold text-academic-navy mb-2 uppercase tracking-widest">First Name</label>
+                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-none focus:ring-academic-gold focus:border-academic-gold bg-white" required>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-bold text-academic-navy mb-2 uppercase tracking-widest">Last Name</label>
+                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-none focus:ring-academic-gold focus:border-academic-gold bg-white" required>
+                  </div>
                 </div>
-              </li>
-              <li class="flex items-start">
-                <i data-lucide="mail" class="w-6 h-6 mr-4 text-academic-gold shrink-0"></i>
                 <div>
-                  <p class="font-medium text-lg">Email Address</p>
-                  <a href="mailto:${siteConfig.author.email}" class="text-gray-400 hover:text-white transition-colors mt-1 block">${siteConfig.author.email}</a>
+                  <label class="block text-sm font-bold text-academic-navy mb-2 uppercase tracking-widest">Email Address</label>
+                  <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-none focus:ring-academic-gold focus:border-academic-gold bg-white" required>
                 </div>
-              </li>
-              <li class="flex items-start">
-                <i data-lucide="phone" class="w-6 h-6 mr-4 text-academic-gold shrink-0"></i>
                 <div>
-                  <p class="font-medium text-lg">Phone</p>
-                  <p class="text-gray-400 mt-1">${siteConfig.author.phone}</p>
+                  <label class="block text-sm font-bold text-academic-navy mb-2 uppercase tracking-widest">Message</label>
+                  <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-none focus:ring-academic-gold focus:border-academic-gold bg-white" required></textarea>
                 </div>
-              </li>
-            </ul>
-            
-            <div class="mt-16 relative z-10">
-              <p class="font-medium mb-4">Connect Professionally</p>
-              <div class="flex space-x-4">
+                <button type="submit" class="px-8 py-4 bg-academic-navy text-white font-bold uppercase tracking-widest hover:bg-academic-gold transition-colors">
+                  Submit Inquiry
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 space-y-12">
+            <div id="events" class="scroll-mt-32">
+              <h3 class="text-xl font-display font-black text-academic-navy mb-6 uppercase tracking-widest border-b border-gray-300 pb-3">Upcoming Events</h3>
+              <div>
+                ${eventsHtml}
+              </div>
+            </div>
+
+            <div id="social-media" class="scroll-mt-32">
+              <h3 class="text-xl font-display font-black text-academic-navy mb-6 uppercase tracking-widest border-b border-gray-300 pb-3">Social Media</h3>
+              <div class="flex flex-wrap gap-4">
                 ${siteConfig.socialMedia.map(social => `
-                  <a href="${social.url}" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-academic-gold transition-colors group" aria-label="${social.platform}">
-                    <span class="inline-block w-5 h-5 text-gray-300 group-hover:text-academic-navy transition-colors">
-                      ${social.iconSvg}
-                    </span>
+                  <a href="${social.url}" class="w-12 h-12 flex items-center justify-center bg-academic-ivory border border-gray-200 text-gray-500 hover:bg-academic-navy hover:text-white transition-colors" aria-label="${social.platform}">
+                    <i data-lucide="${social.icon || 'link'}" class="w-6 h-6"></i>
                   </a>
                 `).join('')}
               </div>
             </div>
+            
+            <div class="bg-academic-navy p-8 text-white mt-8 border-t-4 border-academic-gold">
+              <h3 class="text-xl font-display font-black text-white mb-6 uppercase tracking-widest border-b border-gray-700 pb-3">Office Info</h3>
+              <ul class="space-y-6">
+                <li class="flex items-start">
+                  <i data-lucide="map-pin" class="w-6 h-6 mr-4 text-academic-gold shrink-0 mt-0.5"></i>
+                  <span class="text-gray-300 text-sm leading-relaxed">${siteConfig.author.office}</span>
+                </li>
+                <li class="flex items-center">
+                  <i data-lucide="phone" class="w-6 h-6 mr-4 text-academic-gold shrink-0"></i>
+                  <span class="text-gray-300 text-sm">${siteConfig.author.phone}</span>
+                </li>
+              </ul>
+            </div>
           </div>
-          
-          <!-- Contact Form -->
-          <div class="p-10">
-            <h3 class="text-2xl font-bold text-academic-navy mb-8">Send a Message</h3>
-            <form class="space-y-6" onsubmit="event.preventDefault(); alert('Form submission mocked successfully!');">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
-                  <input type="text" id="firstName" name="firstName" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-academic-blue focus:border-academic-blue transition-colors" placeholder="Jane" required>
-                </div>
-                <div>
-                  <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
-                  <input type="text" id="lastName" name="lastName" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-academic-blue focus:border-academic-blue transition-colors" placeholder="Doe" required>
-                </div>
-              </div>
-              
-              <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-academic-blue focus:border-academic-blue transition-colors" placeholder="jane@example.com" required>
-              </div>
-              
-              <div>
-                <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
-                <select id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-academic-blue focus:border-academic-blue transition-colors bg-white">
-                  <option>Research Collaboration</option>
-                  <option>Prospective Student</option>
-                  <option>Speaking Engagement</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              
-              <div>
-                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-academic-blue focus:border-academic-blue transition-colors" placeholder="How can I help you?" required></textarea>
-              </div>
-              
-              <button type="submit" class="w-full sm:w-auto px-8 py-3 bg-academic-navy text-white font-semibold rounded-md hover:bg-academic-blue transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-academic-blue shadow-sm">
-                Send Message
-              </button>
-            </form>
-          </div>
-          
+
         </div>
+        
       </div>
     </section>
   `;

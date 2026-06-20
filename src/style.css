@@ -7,7 +7,7 @@
   --color-academic-ivory: #F8F9FA; /* Off-white */
   
   --font-sans: 'Inter', sans-serif;
-  --font-display: 'Outfit', sans-serif;
+  --font-display: 'Merriweather', serif;
 }
 
 @layer base {

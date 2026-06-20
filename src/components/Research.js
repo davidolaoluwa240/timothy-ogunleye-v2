@@ -1,31 +1,44 @@
 import { siteConfig } from '../data/siteConfig';
 
 export function createResearch() {
-  
   const interestsHtml = siteConfig.researchInterests.map(interest => `
-    <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white border border-gray-200 text-academic-navy shadow-sm hover:border-academic-gold hover:text-academic-blue transition-colors cursor-default">
-      <i data-lucide="microscope" class="w-4 h-4 mr-2 text-gray-400"></i>
-      ${interest}
+    <span class="inline-flex items-center px-4 py-2 rounded-none border border-academic-gold bg-academic-ivory text-sm font-bold text-academic-navy uppercase tracking-wider">
+      ${interest.title}
     </span>
   `).join('');
 
   const projectsHtml = siteConfig.projects.map(project => `
-    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
-      <div class="p-8 flex-grow">
-        <div class="flex justify-between items-start mb-4">
-          <div class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${project.status === 'Ongoing' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}">
-            ${project.status}
-          </div>
-          <span class="text-sm font-semibold text-academic-gold">${project.funding}</span>
-        </div>
-        <h3 class="text-xl font-bold text-academic-navy mb-3 leading-tight">${project.title}</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">${project.description}</p>
+    <div class="bg-white p-8 border border-gray-200 border-l-4 ${project.status === 'Ongoing' ? 'border-l-academic-blue' : 'border-l-gray-400'} shadow-sm hover:shadow-md transition-shadow">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="text-xl font-display font-bold text-academic-navy leading-tight pr-4">${project.title}</h3>
+        <span class="inline-flex items-center px-3 py-1 text-xs font-bold uppercase tracking-wider ${project.status === 'Ongoing' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}">
+          ${project.status}
+        </span>
       </div>
-      <div class="px-8 py-4 bg-gray-50 border-t border-gray-100">
-        <a href="#" class="text-academic-blue hover:text-academic-navy font-medium text-sm flex items-center transition-colors">
-          View Project Details <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-        </a>
-      </div>
+      <p class="text-sm font-bold text-academic-gold mb-4 uppercase tracking-widest flex items-center">
+        <i data-lucide="coins" class="w-4 h-4 mr-2"></i> ${project.funding}
+      </p>
+      <p class="text-gray-700 leading-relaxed">${project.description}</p>
+    </div>
+  `).join('');
+
+  const grantsHtml = siteConfig.grants.map(grant => `
+    <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+      <td class="py-4 px-4 font-bold text-academic-navy">${grant.title}</td>
+      <td class="py-4 px-4 text-gray-600">${grant.agency}</td>
+      <td class="py-4 px-4 text-academic-gold font-semibold">${grant.amount}</td>
+      <td class="py-4 px-4 text-gray-500 whitespace-nowrap">${grant.period}</td>
+      <td class="py-4 px-4 text-gray-700 font-medium">${grant.role}</td>
+    </tr>
+  `).join('');
+
+  const collabHtml = siteConfig.collaborations.map(collab => `
+    <div class="p-6 bg-academic-ivory border border-gray-200">
+      <h4 class="font-bold text-academic-navy text-lg mb-2 flex items-center">
+        <i data-lucide="globe" class="w-5 h-5 mr-2 text-academic-gold"></i>
+        ${collab.partner}
+      </h4>
+      <p class="text-gray-600 text-sm leading-relaxed">${collab.topic}</p>
     </div>
   `).join('');
 
@@ -34,29 +47,57 @@ export function createResearch() {
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-display font-bold text-academic-navy sm:text-4xl">Research</h2>
-          <div class="w-24 h-1 bg-academic-gold mx-auto mt-4 rounded-full"></div>
+          <h2 class="text-3xl font-display font-black text-academic-navy sm:text-4xl uppercase tracking-widest border-b-2 border-academic-gold pb-4 inline-block">Research Portfolio</h2>
         </div>
         
-        <!-- Research Interests -->
-        <div class="mb-20 max-w-4xl mx-auto text-center">
-          <h3 class="text-lg font-semibold text-gray-500 uppercase tracking-wider mb-6">Core Areas of Focus</h3>
-          <div class="flex flex-wrap justify-center gap-3">
+        <div id="research-interests" class="mb-16 scroll-mt-32">
+          <h3 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-6">Core Focus Areas</h3>
+          <div class="flex flex-wrap gap-3">
             ${interestsHtml}
           </div>
         </div>
         
-        <!-- Selected Projects -->
-        <div>
-          <div class="flex items-center justify-between mb-8">
-            <h3 class="text-2xl font-bold text-academic-navy flex items-center">
-              <i data-lucide="flask-conical" class="w-6 h-6 mr-3 text-academic-gold"></i>
-              Selected Projects & Grants
-            </h3>
-          </div>
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div id="research-impact" class="mb-20 scroll-mt-32 bg-academic-navy text-white p-10 border-l-8 border-academic-gold">
+          <h3 class="text-xl font-display font-black mb-4 uppercase tracking-widest flex items-center">
+            <i data-lucide="zap" class="w-6 h-6 mr-3 text-academic-gold"></i>
+            Global Research Impact
+          </h3>
+          <p class="text-lg text-gray-300 leading-relaxed italic border-l-2 border-gray-600 pl-6 py-2">
+            "${siteConfig.researchImpact.statement}"
+          </p>
+        </div>
+
+        <div id="projects" class="mb-20 scroll-mt-32">
+          <h3 class="text-2xl font-display font-black text-academic-navy mb-8 uppercase border-b border-gray-300 pb-3">Selected Projects</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             ${projectsHtml}
+          </div>
+        </div>
+
+        <div id="grants" class="mb-20 scroll-mt-32">
+          <h3 class="text-2xl font-display font-black text-academic-navy mb-8 uppercase border-b border-gray-300 pb-3">Active & Past Grants</h3>
+          <div class="overflow-x-auto bg-white border border-gray-200 shadow-sm">
+            <table class="min-w-full text-left text-sm">
+              <thead class="bg-academic-navy text-white font-bold uppercase tracking-wider">
+                <tr>
+                  <th scope="col" class="py-4 px-4">Project Title</th>
+                  <th scope="col" class="py-4 px-4">Funding Agency</th>
+                  <th scope="col" class="py-4 px-4">Amount</th>
+                  <th scope="col" class="py-4 px-4">Period</th>
+                  <th scope="col" class="py-4 px-4">Role</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100">
+                ${grantsHtml}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="collaborations" class="scroll-mt-32">
+          <h3 class="text-2xl font-display font-black text-academic-navy mb-8 uppercase border-b border-gray-300 pb-3">International Collaborations</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            ${collabHtml}
           </div>
         </div>
         
